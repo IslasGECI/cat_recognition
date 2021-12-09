@@ -4,8 +4,8 @@ from PIL import Image
 def resize_image(
     original_path: str,
     destionation_path: str,
-    width: int = 256,
-    height: int = 256,
+    width: int = 512,
+    height: int = 512,
     scale_filter=Image.ANTIALIAS,
 ):
     original_image = Image.open(original_path)
@@ -18,7 +18,7 @@ if __name__ == "__main__":
     # in the folder called data/originals
     import os
 
-    original_images_path = "./data/originals/"
+    original_images_path = "./data/raw/"
     resized_image_path = "./data/resized/"
     images_list = [
         original_images_path + file_name for file_name in os.listdir(original_images_path)
