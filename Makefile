@@ -1,7 +1,7 @@
 all: mutants
 
 module = cat_recognition
-codecov_token = 84e068b0-5f49-4a9e-b08a-b90e880fbc6a
+codecov_token = b29fe8aa-a6c6-4b4c-b54f-fe408af8fed0
 
 define lint
 	pylint \
