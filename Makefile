@@ -62,7 +62,7 @@ process_images: yolo.h5 resize_images src/first_recognition.py
 	mkdir --parents data/processed
 	python src/first_recognition.py
 
-resize_images: 
+resize_images:
 	python cat_recognition/resize_images.py
 
 yolo.h5:
