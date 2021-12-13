@@ -24,8 +24,8 @@ detector.loadModel()
 
 onlyfiles = [f for f in listdir(data_path) if isfile(join(data_path, f))]
 
+custom_objects = detector.CustomObjects(cat=True)
 for files in onlyfiles:
-    custom_objects = detector.CustomObjects(cat=True)
     image_path = f"{files[:-4]}.jpg"
     processed_image_path = f"{files[:-4]}_predicted.jpg"
     output_image_path = os.path.join(results_path, processed_image_path)
