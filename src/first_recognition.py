@@ -4,6 +4,8 @@ import os
 from os import listdir
 from os.path import isfile, join
 
+import cat_recognition as cr
+
 execution_path = os.getcwd()
 data_path = os.path.join(execution_path, "data/resized/")
 results_path = os.path.join(execution_path, "data/processed/")
