@@ -28,7 +28,7 @@ custom_objects = detector.CustomObjects(cat=True)
 for files in onlyfiles:
     image_path = f"{files[:-4]}.jpg"
     processed_image_path = f"{files[:-4]}_predicted.jpg"
-    output_image_path = os.path.join(results_path, processed_image_path)
+    output_image_path = os.path.join(negative_detections_path, processed_image_path)
     detections = detector.detectCustomObjectsFromImage(
         custom_objects=custom_objects,
         input_image=os.path.join(data_path, image_path),
@@ -38,5 +38,3 @@ for files in onlyfiles:
     name_objects = [individual_detection["name"] for individual_detection in detections]
     if "cat" in name_objects:
         os.replace(output_image_path, os.path.join(positive_detections_path, processed_image_path))
-    else:
-        os.replace(output_image_path, os.path.join(negative_detections_path, processed_image_path))
