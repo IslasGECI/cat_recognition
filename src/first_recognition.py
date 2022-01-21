@@ -4,8 +4,6 @@ import os
 from os import listdir
 from os.path import isfile, join
 
-import cat_recognition as cr
-
 execution_path = os.getcwd()
 data_path = os.path.join(execution_path, "data/resized/")
 results_path = os.path.join(execution_path, "data/processed/")
@@ -32,13 +30,13 @@ output_image_paths = [
     for processed_image_path in processed_image_paths
 ]
 input_images = [os.path.join(data_path, image_path) for image_path in image_paths]
-output_image_paths = [
+paths_of_processed_image_as_positive = [
     os.path.join(positive_detections_path, processed_image_path)
     for processed_image_path in processed_image_paths
 ]
 custom_objects = detector.CustomObjects(cat=True)
-
-for input_image, output_image_path in zip(input_images, output_image_paths):
+inputs_and_paths = zip(input_images, output_image_paths, paths_of_processed_image_as_positive)
+for input_image, output_image_path, processed_as_positive in inputs_and_paths:
     detections = detector.detectCustomObjectsFromImage(
         minimum_percentage_probability=1,
         custom_objects=custom_objects,
@@ -47,4 +45,4 @@ for input_image, output_image_path in zip(input_images, output_image_paths):
     )
     name_objects = [individual_detection["name"] for individual_detection in detections]
     if "cat" in name_objects:
-        os.replace(output_image_path, os.path.join(positive_detections_path, processed_image_path))
+        os.replace(output_image_path, processed_as_positive)
