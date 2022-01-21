@@ -35,7 +35,9 @@ paths_of_processed_image_as_positive = [
     for processed_image_path in processed_image_paths
 ]
 custom_objects = detector.CustomObjects(cat=True)
-inputs_and_paths = zip(input_images, paths_of_processed_image_as_negative, paths_of_processed_image_as_positive)
+inputs_and_paths = zip(
+    input_images, paths_of_processed_image_as_negative, paths_of_processed_image_as_positive
+)
 for input_image, processed_as_positive, processed_as_positive in inputs_and_paths:
     detections = detector.detectCustomObjectsFromImage(
         minimum_percentage_probability=1,
