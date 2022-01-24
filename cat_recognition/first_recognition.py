@@ -3,8 +3,10 @@ import os
 from os import listdir
 from os.path import isfile, join
 
+
 def return_one():
     return 1
+
 
 class Cat_Detector:
     def __init__(self):
@@ -26,7 +28,7 @@ class Cat_Detector:
         return detections
 
 
-class Paths_Management():
+class Paths_Management:
     def __init__(self, execution_path):
         self.data_path = os.path.join(execution_path, "data/resized/")
         self.results_path = os.path.join(execution_path, "data/processed/")
@@ -58,11 +60,13 @@ class Paths_Management():
             "processed_image_as_negative": paths_of_processed_image_as_negative,
             "processed_image_as_positive": paths_of_processed_image_as_positive,
         }
-        
+
     def get_input_output_paths(self):
         self.get_input_images_paths()
         self.get_processed_images_paths()
         inputs_and_paths = zip(
-            self.input_images, self.paths["processed_image_as_negative"], self.paths["processed_image_as_positive"]
+            self.input_images,
+            self.paths["processed_image_as_negative"],
+            self.paths["processed_image_as_positive"],
         )
         return inputs_and_paths
