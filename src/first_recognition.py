@@ -34,6 +34,12 @@ class Cat_Detector:
         return detections
 
 
+def move_if_detection_is_positive(detections, processed_as_negative, processed_as_positive):
+    name_objects = [individual_detection["name"] for individual_detection in detections]
+    if "cat" in name_objects:
+        os.replace(processed_as_negative, processed_as_positive)
+
+
 onlyfiles = [f for f in listdir(data_path) if isfile(join(data_path, f))]
 image_paths = [f"{files[:-4]}.jpg" for files in onlyfiles]
 input_images = [os.path.join(data_path, image_path) for image_path in image_paths]
@@ -52,6 +58,4 @@ inputs_and_paths = zip(
 cat_detector = Cat_Detector()
 for input_image, processed_as_negative, processed_as_positive in inputs_and_paths:
     detections = cat_detector.detect_cat(input_image, processed_as_negative)
-    name_objects = [individual_detection["name"] for individual_detection in detections]
-    if "cat" in name_objects:
-        os.replace(processed_as_negative, processed_as_positive)
+    move_if_detection_is_positive(detections, processed_as_negative, processed_as_positive)
