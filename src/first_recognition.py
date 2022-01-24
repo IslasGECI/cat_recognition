@@ -49,13 +49,9 @@ paths_of_processed_image_as_positive = [
 inputs_and_paths = zip(
     input_images, paths_of_processed_image_as_negative, paths_of_processed_image_as_positive
 )
-for input_image, processed_as_positive, processed_as_positive in inputs_and_paths:
-    detections = detector.detectCustomObjectsFromImage(
-        minimum_percentage_probability=1,
-        custom_objects=custom_objects,
-        input_image=input_image,
-        output_image_path=processed_as_positive,
-    )
+cat_detector = Cat_Detector()
+for input_image, processed_as_negative, processed_as_positive in inputs_and_paths:
+    detections = cat_detector.detect_cat(input_image, processed_as_negative)
     name_objects = [individual_detection["name"] for individual_detection in detections]
     if "cat" in name_objects:
-        os.replace(processed_as_positive, processed_as_positive)
+        os.replace(processed_as_negative, processed_as_positive)
