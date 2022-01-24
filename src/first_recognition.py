@@ -16,16 +16,28 @@ if not os.path.exists(negative_detections_path):
     os.mkdir(negative_detections_path)
 
 
-detector = ObjectDetection()
-detector.setModelTypeAsYOLOv3()
-detector.setModelPath(os.path.join(execution_path, "yolo.h5"))
-detector.loadModel()
+class Cat_Detector:
+    def __init__(self):
+        self.detector = ObjectDetection()
+        self.detector.setModelTypeAsYOLOv3()
+        self.detector.setModelPath(os.path.join(execution_path, "yolo.h5"))
+        self.detector.loadModel()
+        self.custom_objects = self.detector.CustomObjects(cat=True)
+
+    def detect_cat(self, input_image, processed_as_positive):
+        detections = self.detector.detectCustomObjectsFromImage(
+            minimum_percentage_probability=1,
+            custom_objects=self.custom_objects,
+            input_image=input_image,
+            output_image_path=processed_as_positive,
+        )
+        return detections
 
 
 onlyfiles = [f for f in listdir(data_path) if isfile(join(data_path, f))]
 image_paths = [f"{files[:-4]}.jpg" for files in onlyfiles]
-processed_image_paths = [f"{files[:-4]}_predicted.jpg" for files in onlyfiles]
 input_images = [os.path.join(data_path, image_path) for image_path in image_paths]
+processed_image_paths = [f"{files[:-4]}_predicted.jpg" for files in onlyfiles]
 paths_of_processed_image_as_negative = [
     os.path.join(negative_detections_path, processed_image_path)
     for processed_image_path in processed_image_paths
@@ -34,7 +46,6 @@ paths_of_processed_image_as_positive = [
     os.path.join(positive_detections_path, processed_image_path)
     for processed_image_path in processed_image_paths
 ]
-custom_objects = detector.CustomObjects(cat=True)
 inputs_and_paths = zip(
     input_images, paths_of_processed_image_as_negative, paths_of_processed_image_as_positive
 )
