@@ -4,10 +4,6 @@ from os import listdir
 from os.path import isfile, join
 
 
-def return_one():
-    return 1
-
-
 def move_if_detection_is_positive(detections, processed_as_negative, processed_as_positive):
     name_objects = [individual_detection["name"] for individual_detection in detections]
     if "cat" in name_objects:
