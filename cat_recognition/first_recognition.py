@@ -8,6 +8,12 @@ def return_one():
     return 1
 
 
+def move_if_detection_is_positive(detections, processed_as_negative, processed_as_positive):
+    name_objects = [individual_detection["name"] for individual_detection in detections]
+    if "cat" in name_objects:
+        os.replace(processed_as_negative, processed_as_positive)
+
+
 class Cat_Detector:
     def __init__(self):
         self.detector = ObjectDetection()
