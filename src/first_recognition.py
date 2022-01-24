@@ -40,20 +40,34 @@ def move_if_detection_is_positive(detections, processed_as_negative, processed_a
         os.replace(processed_as_negative, processed_as_positive)
 
 
+def get_input_images_paths(data_path, onlyfiles):
+    image_paths = [f"{files[:-4]}.jpg" for files in onlyfiles]
+    input_images = [os.path.join(data_path, image_path) for image_path in image_paths]
+    return input_images
+
+
+def get_processed_images_paths(negative_detections_path, positive_detections_path, onlyfiles):
+    processed_image_paths = [f"{files[:-4]}_predicted.jpg" for files in onlyfiles]
+    paths_of_processed_image_as_negative = [
+        os.path.join(negative_detections_path, processed_image_path)
+        for processed_image_path in processed_image_paths
+    ]
+    paths_of_processed_image_as_positive = [
+        os.path.join(positive_detections_path, processed_image_path)
+        for processed_image_path in processed_image_paths
+    ]
+    processed_images_paths = {
+        "processed_image_as_negative": paths_of_processed_image_as_negative,
+        "processed_image_as_positive": paths_of_processed_image_as_positive,
+    }
+    return processed_images_paths
+
+
 onlyfiles = [f for f in listdir(data_path) if isfile(join(data_path, f))]
-image_paths = [f"{files[:-4]}.jpg" for files in onlyfiles]
-input_images = [os.path.join(data_path, image_path) for image_path in image_paths]
-processed_image_paths = [f"{files[:-4]}_predicted.jpg" for files in onlyfiles]
-paths_of_processed_image_as_negative = [
-    os.path.join(negative_detections_path, processed_image_path)
-    for processed_image_path in processed_image_paths
-]
-paths_of_processed_image_as_positive = [
-    os.path.join(positive_detections_path, processed_image_path)
-    for processed_image_path in processed_image_paths
-]
+input_images = get_input_images_paths(data_path, onlyfiles)
+paths = get_processed_images_paths(negative_detections_path, positive_detections_path, onlyfiles)
 inputs_and_paths = zip(
-    input_images, paths_of_processed_image_as_negative, paths_of_processed_image_as_positive
+    input_images, paths["processed_image_as_negative"], paths["processed_image_as_positive"]
 )
 cat_detector = Cat_Detector()
 for input_image, processed_as_negative, processed_as_positive in inputs_and_paths:
