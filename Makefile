@@ -52,7 +52,7 @@ linter:
 	$(call lint, ${module})
 	$(call lint, tests)
 
-mutants:
+mutants: resize_images
 	mutmut run --paths-to-mutate ${module}
 
 tests:
