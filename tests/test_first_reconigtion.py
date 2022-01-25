@@ -19,11 +19,16 @@ class Test_Paths_Management:
         paths_management.setup_directory_processed()
         inputs_and_paths = paths_management.get_input_output_paths()
         obtained_list = list(inputs_and_paths)
-        expected_list = [('/workspaces/cat_recognition/tests/data/resized/image3.jpg',
-                          '/workspaces/cat_recognition/tests/data/processed/no_cat_detected/image3_predicted.jpg',
-                          '/workspaces/cat_recognition/tests/data/processed/cat_detected/image3_predicted.jpg')]
+        expected_list = [
+            (
+                "/workspaces/cat_recognition/tests/data/resized/image3.jpg",
+                "/workspaces/cat_recognition/tests/data/processed/no_cat_detected/image3_predicted.jpg",
+                "/workspaces/cat_recognition/tests/data/processed/cat_detected/image3_predicted.jpg",
+            )
+        ]
         assert expected_list == obtained_list
-        
+
+
 class Test_Paths:
     def test_PATHS(self):
         paths = Paths()
