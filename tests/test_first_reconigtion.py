@@ -21,9 +21,9 @@ class Test_Paths_Management:
         obtained_list = list(inputs_and_paths)
         expected_list = [
             (
-                "/workspaces/cat_recognition/tests/data/resized/image3.jpg",
-                "/workspaces/cat_recognition/tests/data/processed/no_cat_detected/image3_predicted.jpg",  # noqa
-                "/workspaces/cat_recognition/tests/data/processed/cat_detected/image3_predicted.jpg",  # noqa
+                "/workdir/cat_recognition/tests/data/resized/image3.jpg",
+                "/workdir/cat_recognition/tests/data/processed/no_cat_detected/image3_predicted.jpg",  # noqa
+                "/workdir/cat_recognition/tests/data/processed/cat_detected/image3_predicted.jpg",  # noqa
             )
         ]
         assert expected_list == obtained_list
