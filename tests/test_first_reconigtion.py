@@ -14,7 +14,7 @@ class Test_Paths_Management:
         cr.Paths_Management(workdir)
 
     def test_get_input_output_paths(self):
-        execution_path = "/workspaces/cat_recognition/tests"
+        execution_path = "/workdir/cat_recognition/tests"
         paths_management = Paths_Management(execution_path)
         paths_management.setup_directory_processed()
         inputs_and_paths = paths_management.get_input_output_paths()
