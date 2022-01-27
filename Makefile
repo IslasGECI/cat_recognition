@@ -55,10 +55,13 @@ linter:
 mutants: resize_images
 	mutmut run --paths-to-mutate ${module}
 
-tests:
-	pytest --verbose
+setup:
+	python setup.py install
 
-process_images: yolo.h5 resize_images src/first_recognition.py
+tests:
+	pytest --verbose -vv
+
+process_images: setup yolo.h5 resize_images src/first_recognition.py
 	mkdir --parents data/processed
 	python src/first_recognition.py
 
