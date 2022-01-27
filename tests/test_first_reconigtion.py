@@ -14,16 +14,16 @@ class Test_Paths_Management:
         cr.Paths_Management(workdir)
 
     def test_get_input_output_paths(self):
-        execution_path = "/workdir/cat_recognition/tests"
+        execution_path = "./tests"
         paths_management = Paths_Management(execution_path)
         paths_management.setup_directory_processed()
         inputs_and_paths = paths_management.get_input_output_paths()
         obtained_list = list(inputs_and_paths)
         expected_list = [
             (
-                "/workdir/cat_recognition/tests/data/resized/image3.jpg",
-                "/workdir/cat_recognition/tests/data/processed/no_cat_detected/image3_predicted.jpg",  # noqa
-                "/workdir/cat_recognition/tests/data/processed/cat_detected/image3_predicted.jpg",  # noqa
+                "./tests/data/resized/image3.jpg",
+                "./tests/data/processed/no_cat_detected/image3_predicted.jpg",  # noqa
+                "./tests/data/processed/cat_detected/image3_predicted.jpg",  # noqa
             )
         ]
         assert expected_list == obtained_list
