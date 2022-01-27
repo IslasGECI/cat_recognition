@@ -22,8 +22,8 @@ class Test_Paths_Management:
         expected_list = [
             (
                 "./tests/data/resized/image3.jpg",
-                "./tests/data/processed/no_cat_detected/image3_predicted.jpg",  # noqa
-                "./tests/data/processed/cat_detected/image3_predicted.jpg",  # noqa
+                "./tests/data/processed/no_cat_detected/image3_predicted.jpg",
+                "./tests/data/processed/cat_detected/image3_predicted.jpg",
             )
         ]
         assert expected_list == obtained_list
