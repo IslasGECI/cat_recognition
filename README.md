@@ -15,3 +15,8 @@ Las identificaciones positivas se guardan a la carpeta `data/processed/cat_detec
 - Corre la instrucción `make process_images`
 
 - Listo!
+
+
+## Futuras tareas
+
+- Utilizar los distintos modelos: yolo, retinaIA y otro.
