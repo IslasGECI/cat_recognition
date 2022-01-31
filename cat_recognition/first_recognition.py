@@ -4,9 +4,10 @@ from os import listdir
 from os.path import isfile, join
 
 
-class Paths:
-    PROCESSED_IMAGE_AS_NEGATIVE = "processed_image_as_negative"
-    PROCESSED_IMAGE_AS_POSITIVE = "processed_image_as_positive"
+PATHS_PROCESSED_IMAGE_AS = {
+    "NEGATIVE": "processed_image_as_negative",
+    "POSITIVE": "processed_image_as_positive",
+}
 
 
 def move_if_detection_is_positive(detections, processed_as_negative, processed_as_positive):
@@ -64,8 +65,8 @@ class Paths_Management:
             for processed_image_path in processed_image_paths
         ]
         self.paths = {
-            Paths.PROCESSED_IMAGE_AS_NEGATIVE: paths_of_processed_image_as_negative,
-            Paths.PROCESSED_IMAGE_AS_POSITIVE: paths_of_processed_image_as_positive,
+            "processed_image_as_negative": paths_of_processed_image_as_negative,
+            "processed_image_as_positive": paths_of_processed_image_as_positive,
         }
 
     def get_input_output_paths(self):
@@ -73,7 +74,7 @@ class Paths_Management:
         self.get_processed_images_paths()
         inputs_and_paths = zip(
             self.input_images,
-            self.paths[Paths.PROCESSED_IMAGE_AS_NEGATIVE],
-            self.paths[Paths.PROCESSED_IMAGE_AS_POSITIVE],
+            self.paths["processed_image_as_negative"],
+            self.paths["processed_image_as_positive"],
         )
         return inputs_and_paths

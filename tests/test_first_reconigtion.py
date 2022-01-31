@@ -1,6 +1,6 @@
 import os
 import cat_recognition as cr
-from cat_recognition.first_recognition import Paths, Paths_Management
+from cat_recognition.first_recognition import PATHS_PROCESSED_IMAGE_AS, Paths_Management
 
 
 class Test_Cat_Detector:
@@ -31,7 +31,5 @@ class Test_Paths_Management:
 
 class Test_Paths:
     def test_PATHS(self):
-        paths = Paths()
-        print(paths.PROCESSED_IMAGE_AS_NEGATIVE)
-        assert paths.PROCESSED_IMAGE_AS_NEGATIVE == "processed_image_as_negative"
-        assert paths.PROCESSED_IMAGE_AS_POSITIVE == "processed_image_as_positive"
+        assert PATHS_PROCESSED_IMAGE_AS["NEGATIVE"] == "processed_image_as_negative"
+        assert PATHS_PROCESSED_IMAGE_AS["POSITIVE"] == "processed_image_as_positive"
