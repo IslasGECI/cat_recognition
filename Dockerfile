@@ -12,7 +12,7 @@ RUN pip install \
     flake8 \
     h5py==2.10.0 \
     ipykernel \
-    tensorflow \
+    tensorflow==2.2.0 \
     keras-resnet==0.2.0 \
     keras==2.4.3 \
     matplotlib==3.3.2 \
