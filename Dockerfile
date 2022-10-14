@@ -28,4 +28,4 @@ RUN pip install \
 
 RUN pip install imageai --upgrade
 
-RUN pip uninstall tensorflow --yes && pip install tensorflow 
+RUN pip uninstall tensorflow --yes && pip install tensorflow
