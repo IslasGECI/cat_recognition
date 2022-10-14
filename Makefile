@@ -73,7 +73,7 @@ process_images: setup yolo.h5 resize_images src/first_recognition.py
 	python src/first_recognition.py
 
 resize_images:
-	python cat_recognition/resize_images.py
+	python src/resize_images.py
 
 yolo.h5:
 	wget https://github.com/OlafenwaMoses/ImageAI/releases/download/1.0/yolo.h5
