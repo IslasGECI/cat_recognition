@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3.7.6
 
 WORKDIR /workdir
 COPY . .
@@ -12,7 +12,7 @@ RUN pip install \
     flake8 \
     h5py==2.10.0 \
     ipykernel \
-    tensorflow==2.2.0 \
+    tensorflow==2.4.0 \
     keras-resnet==0.2.0 \
     keras==2.4.3 \
     matplotlib==3.3.2 \
@@ -27,3 +27,5 @@ RUN pip install \
     scipy==1.4.1
 
 RUN pip install imageai --upgrade
+
+RUN pip uninstall tensorflow --yes && pip install tensorflow 
