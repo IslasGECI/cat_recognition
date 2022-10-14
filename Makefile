@@ -18,6 +18,7 @@ endef
 		clean \
 		coverage \
 		format \
+		init \
 		linter \
 		mutants \
 		process_images \
@@ -48,6 +49,8 @@ format:
 	black --line-length 100 src
 	black --line-length 100 tests
 
+init: setup tests
+
 linter:
 	$(call lint, ${module})
 	$(call lint, tests)
@@ -56,6 +59,7 @@ mutants: resize_images
 	mutmut run --paths-to-mutate ${module}
 
 setup:
+	mkdir --parents data/resized
 	python setup.py install
 
 tests:
