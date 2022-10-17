@@ -43,7 +43,7 @@ clean:
 	rm --force --recursive tests/__pycache__
 	rm --force .mutmut-cache
 
-coverage: resize_images setup yolo.h5
+coverage: init resize_images yolo.h5
 	pytest --cov=${module} --cov-report=xml --verbose && \
 	codecov --token=${codecov_token}
 
