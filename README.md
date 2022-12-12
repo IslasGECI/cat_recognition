@@ -1,4 +1,5 @@
-cat_recognition
+<a href="https://www.islas.org.mx/"><img src="https://www.islas.org.mx/img/logo.svg" align="right" width="256" /></a>
+# cat_recognition
 
 Este repositorio usa el framework [ImageAI](https://github.com/OlafenwaMoses/ImageAI) para analizar automáticamente las imágenes en el directorio `data/raw` y busca gatos en las imágenes.
 
