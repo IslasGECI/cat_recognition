@@ -37,10 +37,13 @@ check:
 
 clean:
 	rm --force --recursive ${module}.egg-info
+	rm --force --recursive ${module}/__pycache__
+	rm --force --recursive build
 	rm --force --recursive data/processed/*
 	rm --force --recursive data/resized
-	rm --force --recursive ${module}/__pycache__
+	rm --force --recursive dist
 	rm --force --recursive tests/__pycache__
+	rm --force --recursive .pytest_cache
 	rm --force .mutmut-cache
 
 coverage: init resize_images yolo.h5
