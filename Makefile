@@ -39,6 +39,7 @@ clean:
 	rm --force --recursive ${module}.egg-info
 	rm --force --recursive ${module}/__pycache__
 	rm --force --recursive build
+	rm --force --recursive darknet
 	rm --force --recursive data/processed/*
 	rm --force --recursive data/resized
 	rm --force --recursive dist
@@ -80,3 +81,6 @@ resize_images:
 
 yolo.h5:
 	wget https://github.com/OlafenwaMoses/ImageAI/releases/download/1.0/yolo.h5
+
+yolov3.weights:
+	wget https://pjreddie.com/media/files/yolov3.weights
