@@ -13,8 +13,7 @@ output_layer = [layer_name[i - 1] for i in net.getUnconnectedOutLayers()]
 colors = np.random.uniform(0, 255, size=(len(classes), 3))
 
 # Load Image
-img = cv.imread("/workdir/data/raw/IMG_0270.jpg")
-img = cv.resize(img, None, fx=0.4, fy=0.4)
+img = cv.imread("/workdir/data/resized/IMG_0588.jpg")
 height, width, channel = img.shape
 
 # Detect Objects
