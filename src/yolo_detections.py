@@ -3,9 +3,9 @@ import numpy as np
 from wandb import Classes
 
 # load yolo
-net = cv.dnn.readNet("yolov3.weights", "cfg/yolov3.cfg")
+net = cv.dnn.readNet("/workdir/yolov3.weights", "/workdir/darknet/cfg/yolov3.cfg")
 clasees = []
-with open("data/coco.names", 'r') as f:
+with open("/workdir/darknet/data/coco.names", 'r') as f:
     classes = [line.strip() for line in f.readlines()]
 # print(classes)
 layer_name = net.getLayerNames()
@@ -13,7 +13,7 @@ output_layer = [layer_name[i - 1] for i in net.getUnconnectedOutLayers()]
 colors = np.random.uniform(0, 255, size=(len(classes), 3))
 
 # Load Image
-img = cv.imread("../data/raw/IMG_0270.jpg")
+img = cv.imread("/workdir/data/raw/IMG_0270.jpg")
 img = cv.resize(img, None, fx=0.4, fy=0.4)
 height, width, channel = img.shape
 
