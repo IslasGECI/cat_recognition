@@ -24,7 +24,8 @@ RUN pip install \
     pytest \
     pytest-cov \
     rope \
-    scipy==1.4.1
+    scipy==1.4.1 \
+    wandb
 
 RUN pip install imageai --upgrade
 
