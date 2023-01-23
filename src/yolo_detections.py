@@ -5,7 +5,7 @@ from wandb import Classes
 # load yolo
 net = cv.dnn.readNet("/workdir/yolov3.weights", "/workdir/darknet/cfg/yolov3.cfg")
 clasees = []
-with open("/workdir/darknet/data/coco.names", 'r') as f:
+with open("/workdir/darknet/data/coco.names", "r") as f:
     classes = [line.strip() for line in f.readlines()]
 # print(classes)
 layer_name = net.getLayerNames()
@@ -17,8 +17,7 @@ img = cv.imread("/workdir/data/resized/IMG_0588.jpg")
 height, width, channel = img.shape
 
 # Detect Objects
-blob = cv.dnn.blobFromImage(
-    img, 0.00392, (416, 416), (0, 0, 0), True, crop=False)
+blob = cv.dnn.blobFromImage(img, 0.00392, (416, 416), (0, 0, 0), True, crop=False)
 net.setInput(blob)
 outs = net.forward(output_layer)
 
@@ -38,8 +37,8 @@ for out in outs:
             h = int(detection[3] * height)
             # cv.circle(img, (center_x, center_y), 10, (0, 255, 0), 2 )
             # Reactangle Cordinate
-            x = int(center_x - w/2)
-            y = int(center_y - h/2)
+            x = int(center_x - w / 2)
+            y = int(center_y - h / 2)
             boxes.append([x, y, w, h])
             confidences.append(float(confidence))
             class_ids.append(class_id)
