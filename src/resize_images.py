@@ -1,6 +1,19 @@
 import os
 
-from cat_recognition import resize_image
+from PIL import Image
+
+
+def resize_image(
+    original_path: str,
+    destionation_path: str,
+    width: int = 512,
+    height: int = 512,
+    scale_filter=Image.ANTIALIAS,
+):
+    original_image = Image.open(original_path)
+    resized_image = original_image.resize((width, height), scale_filter)
+    resized_image.save(destionation_path)
+
 
 original_images_path = "./data/raw/"
 resized_image_path = "./data/resized/"
