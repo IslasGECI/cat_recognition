@@ -58,6 +58,9 @@ format:
 
 init: setup tests
 
+install_darknet:
+	git clone https://github.com/pjreddie/darknet && cd darknet && make
+
 linter:
 	$(call lint, ${module})
 	$(call lint, tests)

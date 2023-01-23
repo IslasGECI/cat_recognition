@@ -29,5 +29,3 @@ RUN pip install \
 RUN pip install imageai --upgrade
 
 RUN pip uninstall tensorflow --yes && pip install tensorflow
-
-RUN git clone https://github.com/pjreddie/darknet && cd darknet && make
