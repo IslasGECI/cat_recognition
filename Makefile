@@ -86,4 +86,4 @@ yolo.h5:
 	wget https://github.com/OlafenwaMoses/ImageAI/releases/download/1.0/yolo.h5
 
 yolov3.weights:
-	wget https://pjreddie.com/media/files/yolov3.weights
+	wget --no-check-certificate https://pjreddie.com/media/files/yolov3.weights
