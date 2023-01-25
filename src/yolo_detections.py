@@ -1,6 +1,5 @@
 import cv2 as cv
 import numpy as np
-from wandb import Classes
 
 # load yolo
 net = cv.dnn.readNet("/workdir/yolov3.weights", "/workdir/darknet/cfg/yolov3.cfg")
@@ -35,7 +34,7 @@ confidences = []
 boxes = []
 for out in outs:
     for detection in out:
-        scores = detection[5:]
+        scores = detection[5:]  # Tiramos algunos "objetos" ¿Por qué no están el coco.name?
         class_id = np.argmax(scores)
         confidence = scores[class_id]
         if confidence > 0.01:
