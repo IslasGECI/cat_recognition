@@ -20,6 +20,8 @@ def clasify_from_path(image_path):
     return net.forward(output_layer)
 
 outs = clasify_from_path(image_path)
+all_paths = [f"/workdir/data/resized/{image}" for image in images]
+all_outs = [clasify_from_path(image_path) for image_path in all_paths]
 class_ids = []
 confidences = []
 boxes = []
