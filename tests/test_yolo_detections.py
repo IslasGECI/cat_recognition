@@ -8,5 +8,3 @@ class Test_Cat_Detector:
         net_yolo = Net_Yolo()
         image_path = "/workdir/data/resized/IMG_0586.jpg"
         self.outs = classify_from_path(image_path, net_yolo)
-
-
