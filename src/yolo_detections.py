@@ -20,14 +20,14 @@ images = [
     "IMG_0586.jpg",
     "IMG_0588.jpg",
 ]
-img = cv.imread(f"/workdir/data/resized/{images[0]}")
-height, width, channel = img.shape
+image_path = f"/workdir/data/resized/{images[6]}"
+def clasify_from_path(image_path):
+    img = cv.imread(image_path)
+    blob = cv.dnn.blobFromImage(img, 0.00392, (416, 416), (0, 0, 0), True, crop=False)
+    net.setInput(blob)
+    return net.forward(output_layer)
 
-# Detect Objects
-blob = cv.dnn.blobFromImage(img, 0.00392, (416, 416), (0, 0, 0), True, crop=False)
-net.setInput(blob)
-outs = net.forward(output_layer)
-
+outs = clasify_from_path(image_path)
 class_ids = []
 confidences = []
 boxes = []
