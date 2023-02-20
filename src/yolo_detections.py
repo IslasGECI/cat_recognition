@@ -3,7 +3,6 @@ from os import listdir
 
 # load yolo
 net = cv.dnn.readNet("/workdir/yolov3.weights", "/workdir/darknet/cfg/yolov3.cfg")
-clasees = []
 with open("/workdir/darknet/data/coco.names", "r") as f:
     classes = [line.strip() for line in f.readlines()]
 # print(classes)
@@ -24,16 +23,19 @@ all_paths = [f"/workdir/data/resized/{image}" for image in images]
 all_outs = [clasify_from_path(image_path) for image_path in all_paths]
 class_ids = []
 confidences = []
-boxes = []
-for out in outs:
-    for detection in out:
-        scores = detection[5:]  # Tiramos algunos "objetos" ¿Por qué no están el coco.name?
-        class_id = np.argmax(scores)
-        confidence = scores[class_id]
-        if confidence > 0.01:
+for files, outs in zip(all_paths, all_outs):
+    for out in outs:
+        for detection in out:
+            scores = detection[5:]  # Tiramos algunos "objetos" ¿Por qué no están el coco.name?
+            class_id = 15 #np.argmax(scores)
+            cat_confidence = scores[class_id]
+        #print(cat_confidence)
+            if cat_confidence > 0.01:
             # Object detection
-            confidences.append(float(confidence))
-            class_ids.append(class_id)
+                confidences.append(float(cat_confidence))
+                class_ids.append(class_id)
+                print(files)
+                print(classes[class_id])
 
 
 for class_id in class_ids:
