@@ -18,11 +18,12 @@ def clasify_from_path(image_path):
     net.setInput(blob)
     return net.forward(output_layer)
 
+def move_photo_with_detections(files):
+    print(files)
+
 outs = clasify_from_path(image_path)
 all_paths = [f"/workdir/data/resized/{image}" for image in images]
 all_outs = [clasify_from_path(image_path) for image_path in all_paths]
-class_ids = []
-confidences = []
 for files, outs in zip(all_paths, all_outs):
     for out in outs:
         for detection in out:
@@ -32,11 +33,4 @@ for files, outs in zip(all_paths, all_outs):
         #print(cat_confidence)
             if cat_confidence > 0.01:
             # Object detection
-                confidences.append(float(cat_confidence))
-                class_ids.append(class_id)
-                print(files)
-                print(classes[class_id])
-
-
-for class_id in class_ids:
-    print(classes[class_id])
+                move_photo_with_detections(files)
