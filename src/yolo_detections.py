@@ -9,7 +9,6 @@ with open("/workdir/darknet/data/coco.names", "r") as f:
 # print(classes)
 layer_name = net.getLayerNames()
 output_layer = [layer_name[i - 1] for i in net.getUnconnectedOutLayers()]
-colors = np.random.uniform(0, 255, size=(len(classes), 3))
 
 # Load Image
 images = [
