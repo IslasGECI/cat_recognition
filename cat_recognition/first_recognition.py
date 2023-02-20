@@ -1,4 +1,3 @@
-from imageai.Detection import ObjectDetection
 import os
 from os import listdir
 from os.path import isfile, join
@@ -8,26 +7,6 @@ def move_if_detection_is_positive(detections, processed_as_negative, processed_a
     name_objects = [individual_detection["name"] for individual_detection in detections]
     if "cat" in name_objects:
         os.replace(processed_as_negative, processed_as_positive)
-
-
-class Cat_Detector:
-    def __init__(self):
-        self.detector = ObjectDetection()
-        self.detector.setModelTypeAsYOLOv3()
-
-    def set_model_path(self, execution_path):
-        self.detector.setModelPath(os.path.join(execution_path, "yolo.h5"))
-        self.detector.loadModel()
-        self.custom_objects = self.detector.CustomObjects(cat=True)
-
-    def detect_cat(self, input_image, processed_as_positive):
-        detections = self.detector.detectCustomObjectsFromImage(
-            minimum_percentage_probability=1,
-            custom_objects=self.custom_objects,
-            input_image=input_image,
-            output_image_path=processed_as_positive,
-        )
-        return detections
 
 
 class Paths_Management:
