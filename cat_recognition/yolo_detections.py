@@ -18,4 +18,4 @@ class Net_Yolo:
         self.net.setInput(blob)
 
     def forward(self):
-        self.net.forward(self.output_layer)
+        return self.net.forward(self.output_layer)
