@@ -1,5 +1,5 @@
 import cv2 as cv
-import numpy as np
+from os import listdir
 
 # load yolo
 net = cv.dnn.readNet("/workdir/yolov3.weights", "/workdir/darknet/cfg/yolov3.cfg")
@@ -11,15 +11,7 @@ layer_name = net.getLayerNames()
 output_layer = [layer_name[i - 1] for i in net.getUnconnectedOutLayers()]
 
 # Load Image
-images = [
-    "IMG_0063.jpg",
-    "IMG_0178.jpg",
-    "IMG_0269.jpg",
-    "IMG_0270.jpg",
-    "IMG_0348.jpg",
-    "IMG_0586.jpg",
-    "IMG_0588.jpg",
-]
+images = listdir("data/resized/")
 image_path = f"/workdir/data/resized/{images[6]}"
 def clasify_from_path(image_path):
     img = cv.imread(image_path)
