@@ -1,14 +1,5 @@
-import cv2 as cv
 from os import listdir
 from cat_recognition.yolo_detections import classify_from_path, Net_Yolo, is_there_a_cat
-
-# load yolo
-net = cv.dnn.readNet("/workdir/yolov3.weights", "/workdir/darknet/cfg/yolov3.cfg")
-with open("/workdir/darknet/data/coco.names", "r") as f:
-    classes = [line.strip() for line in f.readlines()]
-# print(classes)
-layer_name = net.getLayerNames()
-output_layer = [layer_name[i - 1] for i in net.getUnconnectedOutLayers()]
 
 net_yolo = Net_Yolo()
 
