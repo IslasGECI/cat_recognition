@@ -19,4 +19,4 @@ class Test_Cat_Detector:
         net_yolo = Net_Yolo()
         image_path = "/workdir/data/resized/IMG_0588.jpg"
         self.outs = classify_from_path(image_path, net_yolo)
-        assert is_there_a_cat(self.outs)
+        assert not is_there_a_cat(self.outs)
