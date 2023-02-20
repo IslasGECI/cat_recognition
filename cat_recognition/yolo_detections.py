@@ -11,12 +11,10 @@ def classify_from_path(image_path, Net):
 def is_there_a_cat(outs):
     for out in outs:
         for detection in out:
-            scores = detection[5:]  # Tiramos algunos "objetos" ¿Por qué no están el coco.name?
-            class_id = 15  # np.argmax(scores)
-            cat_confidence = scores[class_id]
-            # print(cat_confidence)
+            scores = detection[5:]
+            cat_id = 15
+            cat_confidence = scores[cat_id]
             if cat_confidence > 0.01:
-                # Object detection
                 return True
 
 
