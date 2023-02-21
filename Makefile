@@ -73,7 +73,7 @@ linter:
 mutants: init resize_images
 	mutmut run --paths-to-mutate ${module}
 
-setup:
+setup: install_darknet yolov3.weights
 	mkdir --parents data/resized
 	python setup.py install
 
