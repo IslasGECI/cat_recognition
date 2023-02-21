@@ -1,4 +1,5 @@
 import os
+from tqdm import tqdm
 
 from PIL import Image
 
@@ -15,12 +16,19 @@ def resize_image(
     resized_image.save(destionation_path)
 
 
-original_images_path = "/workdir/data/raw/"
+original_images_path = "/workdir/data/raw/photos/"
 resized_image_path = "/workdir/data/resized/"
 images_list = [original_images_path + file_name for file_name in os.listdir(original_images_path)]
 
+error_photos = []
 if not os.path.exists(resized_image_path):
     os.mkdir(resized_image_path)
+images_list_bar = tqdm(images_list)
+for image in images_list_bar:
+    try:
+        resize_image(image, os.path.join(resized_image_path, os.path.split(image)[1]))
+    except:
+        error_photos.append(image)
 
-for image in images_list:
-    resize_image(image, os.path.join(resized_image_path, os.path.split(image)[1]))
+print("fotos con errores:")
+[print(foto) for foto in error_photos]
