@@ -14,11 +14,11 @@ def resize_image(
     resized_image.save(destionation_path)
 
 
-def try_resize_image(original_path: str, destionation_path: str, error_photos: list):
+def try_resize_image(original_path: str, destionation_path: str, new_name: str, error_photos: list):
     try:
+        destionation_path = os.path.join(destionation_path, new_name)
         resize_image(
-            original_path, os.path.join(destionation_path, os.path.split(original_path)[1])
-        )
+            original_path, destionation_path)
     except:
         error_photos.append(original_path)
 

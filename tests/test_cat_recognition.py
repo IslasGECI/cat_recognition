@@ -20,7 +20,8 @@ def test_try_resize_image():
     photos_with_error = []
     original_image_path = "/workdir/tests/data/photo_with_error.JPG"
     resized_image_path = "tests/data/image3_resized.jpg"
-    cr.try_resize_image(original_image_path, resized_image_path, photos_with_error)
+    new_name = "image3_resized.jpg"
+    cr.try_resize_image(original_image_path, resized_image_path, new_name, photos_with_error)
     assert len(photos_with_error) == 1
 
 
