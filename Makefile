@@ -49,7 +49,7 @@ clean: clean_detections
 	rm --force .mutmut-cache
 
 clean_detections:
-	rm --force data/raw/photos/*
+	rm --force --recursive data/raw/photos/*
 	rm --force --recursive data/resized
 
 coverage: init resize_images yolo.h5
