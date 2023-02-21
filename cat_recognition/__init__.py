@@ -1,3 +1,3 @@
-from .resize_images import resize_image  # noqa
+from .resize_images import *  # noqa
 from .first_recognition import *  # noqa
 from .yolo_detections import *  # noqa

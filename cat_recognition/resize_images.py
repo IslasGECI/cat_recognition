@@ -11,3 +11,7 @@ def resize_image(
     original_image = Image.open(original_path)
     resized_image = original_image.resize((width, height), scale_filter)
     resized_image.save(destionation_path)
+
+
+def try_resize_image(original_path: str, destionation_path: str, error_photos: list):
+    pass
