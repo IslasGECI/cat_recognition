@@ -1,3 +1,4 @@
+import os
 from PIL import Image
 
 
@@ -14,4 +15,9 @@ def resize_image(
 
 
 def try_resize_image(original_path: str, destionation_path: str, error_photos: list):
-    pass
+    try:
+        resize_image(
+            original_path, os.path.join(destionation_path, os.path.split(original_path)[1])
+        )
+    except:
+        error_photos.append(original_path)
