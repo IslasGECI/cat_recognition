@@ -29,3 +29,8 @@ def obtain_recursive_paths(root_path: str):
         for name in files:
             all_paths.append(os.path.join(root, name))
     return all_paths
+
+
+def obtain_output_names(root_path):
+    recursive_paths = obtain_recursive_paths(root_path)
+    return [path.split(root_path)[-1].replace("/", "_") for path in recursive_paths]
