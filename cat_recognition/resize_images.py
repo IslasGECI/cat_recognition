@@ -21,3 +21,11 @@ def try_resize_image(original_path: str, destionation_path: str, error_photos: l
         )
     except:
         error_photos.append(original_path)
+
+
+def obtain_recursive_paths(root_path: str):
+    all_paths = []
+    for root, _, files in os.walk(root_path):
+        for name in files:
+            all_paths.append(os.path.join(root, name))
+    return all_paths
