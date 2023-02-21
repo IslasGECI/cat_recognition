@@ -35,7 +35,7 @@ check:
 	flake8 --max-line-length 100 tests
 
 
-clean:
+clean: clean_detections
 	rm --force --recursive ${module}.egg-info
 	rm --force --recursive ${module}/__pycache__
 	rm --force --recursive build
@@ -46,6 +46,10 @@ clean:
 	rm --force --recursive tests/__pycache__
 	rm --force --recursive .pytest_cache
 	rm --force .mutmut-cache
+
+clean_detections:
+	rm --force data/raw/photos/*
+	rm --force --recursive data/resized
 
 coverage: init resize_images yolo.h5
 	pytest --cov=${module} --cov-report=xml --verbose && \
