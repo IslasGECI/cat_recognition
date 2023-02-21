@@ -56,6 +56,9 @@ coverage: init resize_images yolo.h5
 	pytest --cov=${module} --cov-report=xml --verbose && \
 	codecov --token=${codecov_token}
 
+detection_with_yolo: resize_images
+	python src/yolo_detections.py
+
 format:
 	black --line-length 100 ${module}
 	black --line-length 100 src
