@@ -38,3 +38,19 @@ def tests_obtain_recursive_paths():
     root_path = "/workdir/tests/data/"
     obtained_paths = cr.obtain_recursive_paths(root_path)
     assert obtained_paths == expected_paths
+
+
+expected_names = [
+    "photo_with_error.JPG",
+    "image3_resized.jpg",
+    "image3.jpg",
+    "processed_cat_detected_image3_predicted.jpg",
+    "processed_no_cat_detected_IMG_0178_predicted.jpg",
+    "resized_image3.jpg",
+]
+
+
+def tests_obtain_output_names():
+    root_path = "/workdir/tests/data/"
+    obtained_names = cr.obtain_output_names(root_path)
+    assert obtained_names == expected_names
