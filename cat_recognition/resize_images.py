@@ -18,7 +18,7 @@ def try_resize_image(original_path: str, destionation_path: str, new_name: str, 
     try:
         destionation_path = os.path.join(destionation_path, new_name)
         resize_image(original_path, destionation_path)
-    except:
+    except Exception:
         error_photos.append(original_path)
 
 

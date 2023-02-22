@@ -1,5 +1,3 @@
-import os
-import cat_recognition as cr
 from cat_recognition.yolo_detections import classify_from_path, Net_Yolo, is_there_a_cat
 
 
