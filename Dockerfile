@@ -1,4 +1,4 @@
-FROM python:3.7.6
+FROM python:3
 
 WORKDIR /workdir
 COPY . .
@@ -10,24 +10,19 @@ RUN pip install \
     black \
     codecov \
     flake8 \
-    h5py==2.10.0 \
     ipykernel \
-    tensorflow==2.4.0 \
-    keras-resnet==0.2.0 \
-    keras==2.4.3 \
+    keras-resnet \
+    keras \
     matplotlib==3.3.2 \
     mutmut \
-    numpy==1.19.3 \
+    numpy \
     opencv-python \
     pillow==7.0.0 \
     pylint \
     pytest \
     pytest-cov \
     rope \
-    scipy==1.4.1 \
+    scipy \
+    tensorflow \
     tqdm \
     wandb
-
-RUN pip install imageai --upgrade
-
-RUN pip uninstall tensorflow --yes && pip install tensorflow
