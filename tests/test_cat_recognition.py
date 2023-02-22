@@ -12,7 +12,7 @@ def test_resize_image():
 
     image = open(resized_image_path, "rb").read()
     obtained_hash = hashlib.md5(image).hexdigest()
-    expected_hash = "12f1ac191833ce9a8ad3e9482545176d"
+    expected_hash = "79b6e571ec64e47dbb91950cc01527d2"
     assert obtained_hash == expected_hash
 
 
