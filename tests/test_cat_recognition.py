@@ -31,6 +31,8 @@ expected_paths = [
     "/workdir/tests/data/image3.jpg",
     "/workdir/tests/data/processed/cat_detected/image3_predicted.jpg",
     "/workdir/tests/data/processed/no_cat_detected/IMG_0178_predicted.jpg",
+    "/workdir/tests/data/resized/IMG_0588.jpg",
+    "/workdir/tests/data/resized/IMG_0586.jpg",
     "/workdir/tests/data/resized/image3.jpg",
 ]
 
@@ -47,6 +49,8 @@ expected_names = [
     "image3.jpg",
     "processed_cat_detected_image3_predicted.jpg",
     "processed_no_cat_detected_IMG_0178_predicted.jpg",
+    "resized_IMG_0588.jpg",
+    "resized_IMG_0586.jpg",
     "resized_image3.jpg",
 ]
 

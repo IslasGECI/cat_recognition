@@ -2,7 +2,12 @@ import os
 from tqdm import tqdm
 
 
-from cat_recognition import try_resize_image, mkdir_resized_image_path, obtain_recursive_paths, obtain_output_names
+from cat_recognition import (
+    try_resize_image,
+    mkdir_resized_image_path,
+    obtain_recursive_paths,
+    obtain_output_names,
+)
 
 original_images_path = "/workdir/data/raw/photos/"
 resized_image_path = "/workdir/data/resized/"

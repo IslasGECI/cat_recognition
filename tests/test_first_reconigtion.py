@@ -16,9 +16,19 @@ class Test_Paths_Management:
         obtained_list = list(inputs_and_paths)
         expected_list = [
             (
+                "./tests/data/resized/IMG_0588.jpg",
+                "./tests/data/processed/no_cat_detected/IMG_0588_predicted.jpg",
+                "./tests/data/processed/cat_detected/IMG_0588_predicted.jpg",
+            ),
+            (
+                "./tests/data/resized/IMG_0586.jpg",
+                "./tests/data/processed/no_cat_detected/IMG_0586_predicted.jpg",
+                "./tests/data/processed/cat_detected/IMG_0586_predicted.jpg",
+            ),
+            (
                 "./tests/data/resized/image3.jpg",
                 "./tests/data/processed/no_cat_detected/image3_predicted.jpg",
                 "./tests/data/processed/cat_detected/image3_predicted.jpg",
-            )
+            ),
         ]
         assert expected_list == obtained_list
