@@ -46,6 +46,7 @@ clean: clean_detections
 	rm --force --recursive tests/__pycache__
 	rm --force --recursive .pytest_cache
 	rm --force yolov3.weights
+	rm --force yolo.h5
 	rm --force .mutmut-cache
 
 clean_detections:
