@@ -1,4 +1,4 @@
-from cat_recognition.yolo_detections import classify_from_path, Net_Yolo, is_there_a_cat
+from cat_recognition.yolo_detections import classify_from_path, Net_Yolo, is_there_a_cat, move_photo_with_detections
 
 
 class Test_Cat_Detector:
@@ -21,4 +21,5 @@ class Test_Cat_Detector:
 
 
 def test_move_photo_with_detections():
+    move_photo_with_detections()
     pass
