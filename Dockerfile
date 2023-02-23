@@ -25,6 +25,7 @@ RUN pip install \
     scipy \
     tensorflow \
     tqdm \
+    typer \
     wandb
 
 RUN make init
