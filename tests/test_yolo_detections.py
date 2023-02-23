@@ -1,3 +1,5 @@
+import os
+import shutil
 from cat_recognition.yolo_detections import classify_from_path, Net_Yolo, is_there_a_cat, move_photo_with_detections
 
 
@@ -21,5 +23,11 @@ class Test_Cat_Detector:
 
 
 def test_move_photo_with_detections():
+    f = open("/workdir/tests/data/resized/demofile2.txt", "a")
+    f.write("Now the file has more content!")
+    f.close()
+    assert not os.path.exists("/workdir/tests/data/detected_cat/demofile2.txt")
+    os.remove("/workdir/tests/data/resized/demofile2.txt")
     move_photo_with_detections()
+    assert os.path.exists("/workdir/tests/data/detected_cat/demofile2.txt")
     pass
