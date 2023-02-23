@@ -29,3 +29,6 @@ class Net_Yolo:
 
     def forward(self):
         return self.net.forward(self.output_layer)
+
+def move_photo_with_detections():
+    pass
