@@ -8,13 +8,13 @@ def classify_from_path(image_path, Net):
     return Net.forward()
 
 
-def is_there_a_cat(outs):
+def is_there_a_cat(outs, cut_prob = 0.01):
     for out in outs:
         for detection in out:
             scores = detection[5:]
             cat_id = 15
             cat_confidence = scores[cat_id]
-            if cat_confidence > 0.01:
+            if cat_confidence > cut_prob:
                 return True
 
 
