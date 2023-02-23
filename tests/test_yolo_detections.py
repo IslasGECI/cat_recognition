@@ -1,5 +1,4 @@
 import os
-import shutil
 from cat_recognition.yolo_detections import (
     classify_from_path,
     Net_Yolo,
