@@ -26,3 +26,5 @@ RUN pip install \
     tensorflow \
     tqdm \
     wandb
+
+RUN make init
