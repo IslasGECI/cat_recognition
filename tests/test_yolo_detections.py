@@ -18,3 +18,7 @@ class Test_Cat_Detector:
         image_path = "/workdir/tests/data/resized/IMG_0588.jpg"
         self.outs = classify_from_path(image_path, net_yolo)
         assert not is_there_a_cat(self.outs)
+
+
+def test_move_photo_with_detections():
+    pass
