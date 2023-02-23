@@ -26,8 +26,7 @@ def test_move_photo_with_detections():
     f = open("/workdir/tests/data/resized/demofile2.txt", "a")
     f.write("Now the file has more content!")
     f.close()
-    assert not os.path.exists("/workdir/tests/data/detected_cat/demofile2.txt")
-    os.remove("/workdir/tests/data/resized/demofile2.txt")
-    move_photo_with_detections()
-    assert os.path.exists("/workdir/tests/data/detected_cat/demofile2.txt")
-    pass
+    assert not os.path.exists("/workdir/tests/data/cat_detected/demofile2.txt")
+    move_photo_with_detections("demofile2.txt", "/workdir/tests/data")
+    assert os.path.exists("/workdir/tests/data/cat_detected/demofile2.txt")
+    os.remove("/workdir/tests/data/cat_detected/demofile2.txt")

@@ -1,3 +1,4 @@
+from os import path, mkdir, replace
 import cv2 as cv
 
 
@@ -30,5 +31,10 @@ class Net_Yolo:
     def forward(self):
         return self.net.forward(self.output_layer)
 
-def move_photo_with_detections():
-    pass
+def move_photo_with_detections(files, path_data):
+    if not path.exists(f"{path_data}/cat_detected/"):
+        mkdir(f"{path_data}/cat_detected/")
+    old_path = f"{path_data}/resized/{files}"
+    new_path = f"{path_data}/cat_detected/{files}"
+    replace(old_path, new_path)
+    print(files)
