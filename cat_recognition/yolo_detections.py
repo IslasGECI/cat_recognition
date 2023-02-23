@@ -9,7 +9,7 @@ def classify_from_path(image_path, Net):
     return Net.forward()
 
 
-def is_there_a_cat(outs, cut_prob = 0.01):
+def is_there_a_cat(outs, cut_prob=0.01):
     for out in outs:
         for detection in out:
             scores = detection[5:]
@@ -30,6 +30,7 @@ class Net_Yolo:
 
     def forward(self):
         return self.net.forward(self.output_layer)
+
 
 def move_photo_with_detections(files, path_data):
     if not path.exists(f"{path_data}/cat_detected/"):

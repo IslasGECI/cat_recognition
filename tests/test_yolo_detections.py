@@ -1,6 +1,11 @@
 import os
 import shutil
-from cat_recognition.yolo_detections import classify_from_path, Net_Yolo, is_there_a_cat, move_photo_with_detections
+from cat_recognition.yolo_detections import (
+    classify_from_path,
+    Net_Yolo,
+    is_there_a_cat,
+    move_photo_with_detections,
+)
 
 
 class Test_Cat_Detector:
