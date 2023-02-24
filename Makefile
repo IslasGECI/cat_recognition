@@ -45,8 +45,10 @@ clean: clean_detections
 	rm --force --recursive dist
 	rm --force --recursive tests/__pycache__
 	rm --force --recursive .pytest_cache
+	rm --force coverage.xml
 	rm --force yolov3.weights
 	rm --force yolo.h5
+	rm --force .coverage
 	rm --force .mutmut-cache
 
 clean_detections:
