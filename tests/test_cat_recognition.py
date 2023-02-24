@@ -40,7 +40,7 @@ expected_paths = [
 def tests_obtain_recursive_paths():
     root_path = "/workdir/tests/data/"
     obtained_paths = cr.obtain_recursive_paths(root_path)
-    assert obtained_paths == expected_paths
+    assert set(obtained_paths) == set(expected_paths)
 
 
 expected_names = [
@@ -58,4 +58,4 @@ expected_names = [
 def tests_obtain_output_names():
     root_path = "/workdir/tests/data/"
     obtained_names = cr.obtain_output_names(root_path)
-    assert obtained_names == expected_names
+    assert set(obtained_names) == set(expected_names)

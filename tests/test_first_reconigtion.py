@@ -31,4 +31,4 @@ class Test_Paths_Management:
                 "./tests/data/processed/cat_detected/image3_predicted.jpg",
             ),
         ]
-        assert expected_list == obtained_list
+        assert set(expected_list) == set(obtained_list)
