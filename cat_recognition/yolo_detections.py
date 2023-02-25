@@ -4,7 +4,7 @@ import cv2 as cv
 
 def classify_from_path(image_path, Net):
     img = cv.imread(image_path)
-    blob = cv.dnn.blobFromImage(img, 0.00392, (416, 416), (0, 0, 0), True, crop=False)
+    blob = cv.dnn.blobFromImage(img, 0.00392, (416, 416), (0, 0, 0), True)
     Net.set_input(blob)
     return Net.forward()
 
