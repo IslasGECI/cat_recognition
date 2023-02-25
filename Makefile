@@ -55,7 +55,7 @@ clean_detections:
 	rm --force --recursive data/raw/photos/*
 	rm --force --recursive data/resized
 
-coverage: clean init resize_images yolo.h5
+coverage: clean init
 	pytest --cov=${module} --cov-report=xml --verbose && \
 	codecov --token=${codecov_token}
 
@@ -76,7 +76,7 @@ linter:
 	$(call lint, ${module})
 	$(call lint, tests)
 
-mutants: init resize_images
+mutants: clean init
 	mutmut run --paths-to-mutate ${module}
 
 setup: install_darknet yolov3.weights
