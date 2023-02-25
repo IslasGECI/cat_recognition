@@ -6,6 +6,7 @@ from cat_recognition.yolo_detections import (
     Net_Yolo,
     is_there_a_cat,
     move_photo_with_detections,
+    transform_image_to_blob,
 )
 
 
@@ -85,6 +86,7 @@ def test_is_there_a_cat():
     ]
     assert not is_there_a_cat(outs, 0.16)
     assert is_there_a_cat(outs, 0.15)
+
 
 def test_transform_image_to_blob():
     image_path = "/workdir/tests/data/image3.jpg"

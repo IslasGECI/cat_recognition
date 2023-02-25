@@ -4,7 +4,7 @@ import cv2 as cv
 
 def classify_from_path(image_path, Net):
     img = cv.imread(image_path)
-    blob = cv.dnn.blobFromImage(img, 0.00392, (416, 416), (0, 0, 0), True)
+    blob = transform_image_to_blob(img)
     Net.set_input(blob)
     return Net.forward()
 
@@ -39,3 +39,7 @@ def move_photo_with_detections(files, path_data):
     new_path = f"{path_data}/cat_detected/{files}"
     replace(old_path, new_path)
     print(files)
+
+
+def transform_image_to_blob(img):
+    return cv.dnn.blobFromImage(img, 0.00392, (416, 416), (0, 0, 0), True)
