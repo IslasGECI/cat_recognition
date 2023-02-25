@@ -92,6 +92,6 @@ def test_transform_image_to_blob():
     image_path = "/workdir/tests/data/image3.jpg"
     img = cv.imread(image_path)
     blob = transform_image_to_blob(img)
-    assert blob[0][0][0][0] == pytest.approx(0.55272, 0.01)
-    assert blob[0][1][0][0] == pytest.approx(0.48216, 0.01)
-    assert blob[0][2][0][0] == pytest.approx(0.40376, 0.01)
+    assert blob[0][0][0][0] == pytest.approx(0.55272, 0.001)
+    assert blob[0][1][0][0] == pytest.approx(0.48216, 0.001)
+    assert blob[0][2][0][0] == pytest.approx(0.40376, 0.001)
