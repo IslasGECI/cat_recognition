@@ -55,7 +55,7 @@ clean_detections:
 	rm --force --recursive data/raw/photos/*
 	rm --force --recursive data/resized
 
-coverage: init resize_images yolo.h5
+coverage: clean init resize_images yolo.h5
 	pytest --cov=${module} --cov-report=xml --verbose && \
 	codecov --token=${codecov_token}
 
