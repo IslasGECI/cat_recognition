@@ -16,10 +16,10 @@ app = typer.Typer()
 def make_detections(cut_prob: float = 0.01):
     net_yolo = Net_Yolo()
     # Load Image
-    images = listdir("data/resized/")
-    all_paths = [f"/workdir/data/resized/{image}" for image in images]
-    all_outs = [classify_from_path(image_path, net_yolo) for image_path in tqdm(all_paths)]
-    for image, outs in zip(images, all_outs):
+    resized_photos = listdir("data/resized/")
+    all_paths = [f"/workdir/data/resized/{image}" for image in resized_photos]
+    analized_photos = [classify_from_path(image_path, net_yolo) for image_path in tqdm(all_paths)]
+    for image, outs in zip(resized_photos, analized_photos):
         if is_there_a_cat(outs, cut_prob):
             move_photo_with_detections(image, "/workdir/data")
 
