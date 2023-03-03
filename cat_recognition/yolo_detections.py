@@ -19,6 +19,15 @@ def is_there_a_cat(outs, cut_prob=0.01):
                 return True
 
 
+def is_there_a_mammals(outs, cut_prob=0.01):
+    for out in outs:
+        for detection in out:
+            mammals_confidence = detection[20:29]
+            detected_mammal = [mammal > cut_prob for mammal in mammals_confidence]
+            if any(detected_mammal):
+                return True
+
+
 class Net_Yolo:
     def __init__(self):
         self.net = cv.dnn.readNet("/workdir/yolov3.weights", "/workdir/darknet/cfg/yolov3.cfg")
