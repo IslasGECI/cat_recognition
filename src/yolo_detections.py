@@ -2,26 +2,18 @@ from tqdm import tqdm
 from os import listdir
 import typer
 
-from cat_recognition.yolo_detections import (
-    classify_from_path,
-    Net_Yolo,
-    is_there_a_cat,
-    move_photo_with_detections,
-)
+from cat_recognition import Cat_Detector
 
 app = typer.Typer()
 
 
 @app.command()
 def make_detections(cut_prob: float = 0.01):
-    net_yolo = Net_Yolo()
-    # Load Image
+    cd = Cat_Detector()
+    root_path = "/workdir/data"
     resized_photos = listdir("data/resized/")
     all_paths = [f"/workdir/data/resized/{image}" for image in resized_photos]
-    analized_photos = [classify_from_path(image_path, net_yolo) for image_path in tqdm(all_paths)]
-    for image, outs in zip(resized_photos, analized_photos):
-        if is_there_a_cat(outs, cut_prob):
-            move_photo_with_detections(image, "/workdir/data")
+    _ = [cd.move_if_detection_is_positive(image_path, root_path) for image_path in tqdm(all_paths)]
 
 
 if __name__ == "__main__":
