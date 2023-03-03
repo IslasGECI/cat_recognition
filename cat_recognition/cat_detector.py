@@ -7,7 +7,7 @@ from cat_recognition.yolo_detections import (
 
 
 class Cat_Detector:
-    def __init__(self, cut_prob = 0.01):
+    def __init__(self, cut_prob=0.01):
         self.net_yolo = Net_Yolo()
         self.cut_prob: float = cut_prob
 
