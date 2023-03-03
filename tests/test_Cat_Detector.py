@@ -17,4 +17,4 @@ class Test_Cat_Detector:
         image_path = "/workdir/tests/data/resized/IMG_0586.jpg"
         assert not os.path.exists("/workdir/tests/data/cat_detected/IMG_0586.jpg")
         cat_detector.move_if_detection_is_positive(image_path, "/workdir/tests/data")
-        assert not os.path.exists("/workdir/tests/data/cat_detected/IMG_0586.jpg")
+        assert os.path.exists("/workdir/tests/data/cat_detected/IMG_0586.jpg")
