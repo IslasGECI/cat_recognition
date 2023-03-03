@@ -1,12 +1,13 @@
 import pytest
 import os
 import cv2 as cv
-from cat_recognition.yolo_detections import (
+from cat_recognition import (
     classify_from_path,
     Net_Yolo,
     is_there_a_cat,
     move_photo_with_detections,
     transform_image_to_blob,
+    Cat_Detector,
 )
 
 
