@@ -47,7 +47,6 @@ def move_photo_with_detections(files, path_data):
     old_path = f"{path_data}/resized/{files}"
     new_path = f"{path_data}/cat_detected/{files}"
     replace(old_path, new_path)
-    print(files)
 
 
 def transform_image_to_blob(img):
