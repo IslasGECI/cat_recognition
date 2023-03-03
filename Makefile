@@ -40,6 +40,7 @@ clean: clean_detections
 	rm --force --recursive ${module}/__pycache__
 	rm --force --recursive build
 	rm --force --recursive darknet
+	rm --force --recursive data/cat_detected
 	rm --force --recursive data/processed/*
 	rm --force --recursive data/resized
 	rm --force --recursive dist
