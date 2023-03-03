@@ -13,9 +13,12 @@ class Test_Cat_Detector:
         cat_detector = Cat_Detector()
         image_path = "/workdir/tests/data/resized/IMG_0586-2.jpg"
         assert not os.path.exists(output_path)
-        cat_detector.move_if_detection_is_positive(image_path, "/workdir/tests/data")
+        image_with_cat = cat_detector.move_if_detection_is_positive(
+            image_path, "/workdir/tests/data"
+        )
         assert os.path.exists(output_path)
         _remove_if_exist(output_path)
+        assert image_with_cat == "IMG_0586-2.jpg"
 
 
 def _remove_if_exist(path):
