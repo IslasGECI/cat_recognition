@@ -1,4 +1,4 @@
-FROM python:3
+FROM python:alpine
 
 WORKDIR /workdir
 COPY . .
@@ -17,7 +17,7 @@ RUN pip install \
     mutmut \
     numpy \
     opencv-python \
-    pillow==7.0.0 \
+    pillow \
     pylint \
     pytest \
     pytest-cov \
