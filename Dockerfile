@@ -17,7 +17,7 @@ RUN pip install \
     mutmut \
     numpy \
     opencv-python \
-    pillow \
+    pillow==7.0.0 \
     pylint \
     pytest \
     pytest-cov \
